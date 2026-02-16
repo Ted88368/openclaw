@@ -1,12 +1,15 @@
 {
+  "gateway": {
+    "mode": "local"
+  },
   "agents": {
     "defaults": {
       "model": {
-        "primary": "lmstudio/qwen2.5-7b-instruct"
+        "primary": "lmstudio/deepseek-r1-0528-qwen3-8b"
       },
       "models": {
-        "lmstudio/qwen2.5-7b-instruct": {
-          "alias": "Qwen Local"
+        "lmstudio/deepseek-r1-0528-qwen3-8b": {
+          "alias": "DeepSeek R1 Local"
         }
       }
     }
@@ -20,10 +23,12 @@
         "api": "openai-completions",
         "models": [
           {
-            "id": "qwen2.5-7b-instruct",
-            "name": "Qwen 2.5 7B Instruct",
-            "reasoning": false,
-            "input": ["text"],
+            "id": "deepseek-r1-0528-qwen3-8b",
+            "name": "DeepSeek R1 0528 Qwen3 8B",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
             "cost": {
               "input": 0,
               "output": 0,
