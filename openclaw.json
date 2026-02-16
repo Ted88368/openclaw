@@ -1,0 +1,40 @@
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "lmstudio/qwen2.5-7b-instruct"
+      },
+      "models": {
+        "lmstudio/qwen2.5-7b-instruct": {
+          "alias": "Qwen Local"
+        }
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "lmstudio": {
+        "baseUrl": "http://host.docker.internal:1234/v1",
+        "apiKey": "lmstudio",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen2.5-7b-instruct",
+            "name": "Qwen 2.5 7B Instruct",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 32768,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  }
+}
