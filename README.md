@@ -88,6 +88,10 @@ docker compose run --rm openclaw-cli doctor # 运行诊断
 
 Docker 容器通过 `host.docker.internal` 访问 Mac 宿主机上运行的 LM Studio。这在 `docker-compose.yml` 和 `openclaw.json` 中已自动配置，无需额外操作。
 
+## Skill 推荐
++ [Skill 推荐](./skill.md)
+
+
 ## 参考
 
 - [OpenClaw 官方文档](https://docs.openclaw.ai)
