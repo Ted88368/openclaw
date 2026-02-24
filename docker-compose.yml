@@ -23,13 +23,15 @@ services:
     container_name: openclaw-cli
     stdin_open: true
     tty: true
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    network_mode: "service:openclaw-gateway"
     volumes:
       - ~/.openclaw:/home/node/.openclaw
       - ~/.openclaw/workspace:/home/node/.openclaw/workspace
     environment:
       - NODE_ENV=production
+      - OPENCLAW_GATEWAY_TOKEN=local-dev
     entrypoint: [ "node", "/app/dist/index.js" ]
     profiles:
       - cli
+    depends_on:
+      - openclaw-gateway
