@@ -112,7 +112,7 @@ Sessions │ default glm-4.7-flash (200k ctx) ...
 # 发送一条消息给 AI Agent
 docker compose run --rm openclaw-cli agent \
   --session-id test-001 \
-  --message "你好！请介绍一下你自己。" \
+  --message "你好！请介绍一下你自己,包括使用的模型" \
   --json
 ```
 
