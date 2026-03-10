@@ -14,7 +14,7 @@
         "providers": {
             "nvidia": {
                 "baseUrl": "https://integrate.api.nvidia.com/v1",
-                "apiKey": "自己申请",
+                "apiKey": "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",
                 "api": "openai-completions",
                 "models": [
                     {
@@ -41,9 +41,9 @@
                 "api": "openai-completions",
                 "models": [
                     {
-                        "id": "zai-org/glm-4.7-flash",
-                        "name": "zai-org/glm-4.7-flash",
-                        "reasoning": true,
+                        "id": "openai/gpt-oss-20b",
+                        "name": "openai/gpt-oss-20b",
+                        "reasoning": false,
                         "input": [
                             "text"
                         ],
@@ -53,7 +53,23 @@
                             "cacheRead": 0,
                             "cacheWrite": 0
                         },
-                        "contextWindow": 200000,
+                        "contextWindow": 32000,
+                        "maxTokens": 4096
+                    },
+                    {
+                        "id": "qwen3.5-9b-mlx",
+                        "name": "qwen3.5-9b-mlx",
+                        "reasoning": false,
+                        "input": [
+                            "text"
+                        ],
+                        "cost": {
+                            "input": 0,
+                            "output": 0,
+                            "cacheRead": 0,
+                            "cacheWrite": 0
+                        },
+                        "contextWindow": 32000,
                         "maxTokens": 4096
                     }
                 ]
@@ -63,7 +79,7 @@
     "agents": {
         "defaults": {
             "model": {
-                "primary": "lmstudio/zai-org/glm-4.7-flash"
+                "primary": "lmstudio/openai/gpt-oss-20b"
             },
             "workspace": "/home/node/.openclaw/workspace",
             "compaction": {
@@ -95,8 +111,8 @@
     "channels": {
         "feishu": {
             "enabled": true,
-            "appId": "自己申请",
-            "appSecret": "自己申请",
+            "appId": "xxx",
+            "appSecret": "xxx",
             "domain": "feishu",
             "groupPolicy": "open"
         }
