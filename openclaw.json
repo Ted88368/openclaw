@@ -12,29 +12,6 @@
     "models": {
         "mode": "merge",
         "providers": {
-            "nvidia": {
-                "baseUrl": "https://integrate.api.nvidia.com/v1",
-                "apiKey": "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",
-                "api": "openai-completions",
-                "models": [
-                    {
-                        "id": "minimaxai/minimax-m2.1",
-                        "name": "minimax-m2.1",
-                        "reasoning": false,
-                        "input": [
-                            "text"
-                        ],
-                        "cost": {
-                            "input": 0,
-                            "output": 0,
-                            "cacheRead": 0,
-                            "cacheWrite": 0
-                        },
-                        "contextWindow": 200000,
-                        "maxTokens": 8192
-                    }
-                ]
-            },
             "lmstudio": {
                 "baseUrl": "http://host.docker.internal:1234/v1",
                 "apiKey": "lmstudio",
