@@ -145,6 +145,7 @@ docker compose run --rm openclaw-cli health  # 健康检查
 docker compose run --rm openclaw-cli doctor  # 诊断问题
 
 # 配置同步（修改 openclaw.json 后执行）
+# cp  ~/.openclaw/openclaw.json openclaw.json
 cp openclaw.json ~/.openclaw/openclaw.json && docker compose restart openclaw-gateway
 ```
 
