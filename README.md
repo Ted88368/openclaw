@@ -18,10 +18,13 @@
 git clone https://github.com/Ted88368/openclaw.git
 cd openclaw
 
-# 2. 一键设置（自动检测 LM Studio、复制配置、拉取镜像、启动 Gateway）
+# 2. 一键设置（自动检测 LM Studio、复制配置、构建镜像、启动 Gateway）
 chmod +x setup.sh
 ./setup.sh
 ```
+
+> [!NOTE]
+> 本项目现已扩展其 Docker 镜像以包含 `uv`（高效的 Python 包管理工具），因此需要先进行本地构建。
 
 ---
 
@@ -86,7 +89,8 @@ chmod +x setup.sh
 # 将配置同步到 ~/.openclaw 并启动
 mkdir -p ~/.openclaw/workspace
 cp openclaw.json ~/.openclaw/openclaw.json
-docker compose up -d openclaw-gateway
+docker compose build                        # 构建扩展镜像（包含 uv 支持）
+docker compose up -d openclaw-gateway        # 启动
 ```
 
 ---
@@ -134,6 +138,7 @@ docker compose run --rm openclaw-cli health
 
 ```bash
 # Gateway 管理
+docker compose build                         # 更新镜像（代码或 Dockerfile 变更后）
 docker compose up -d openclaw-gateway        # 启动
 docker compose restart openclaw-gateway      # 重启
 docker compose down                          # 停止
@@ -176,6 +181,17 @@ Mac 宿主机
 | `gateway closed (1006)` | CLI 无法访问 Gateway | 确认 `docker-compose.yml` 中 CLI 使用 `network_mode: service:openclaw-gateway` |
 
 ---
+
+---
+
+## 高级特性：uv 支持
+
+镜像中已内置 [uv](https://github.com/astral-sh/uv)，可用于快速安装和管理 Python 依赖。这对于执行需要额外 Python 库的 AI 任务非常有用。
+
+### 检查 uv 版本
+```bash
+docker compose run --rm openclaw-cli uv --version
+```
 
 ## Skill 推荐
 

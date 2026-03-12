@@ -1,6 +1,7 @@
 services:
   openclaw-gateway:
-    image: ghcr.io/phioranex/openclaw-docker:latest
+    build: .
+    image: openclaw-extended:latest
     container_name: openclaw-gateway
     restart: unless-stopped
     stdin_open: true
@@ -19,7 +20,8 @@ services:
     command: [ "gateway" ]
 
   openclaw-cli:
-    image: ghcr.io/phioranex/openclaw-docker:latest
+    build: .
+    image: openclaw-extended:latest
     container_name: openclaw-cli
     stdin_open: true
     tty: true
