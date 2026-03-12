@@ -23,5 +23,5 @@ ENV PATH="/usr/local/bin:${PATH}"
 # Configure uv to use Chinese mirror (TUNA)
 ENV UV_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 
-# Switch back to the default user if the base image uses one
-# USER node
+# Switch back to the default user
+USER node
