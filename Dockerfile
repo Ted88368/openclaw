@@ -1,4 +1,4 @@
-FROM ghcr.io/phioranex/openclaw-docker:latest
+FROM --platform=linux/amd64 ghcr.io/phioranex/openclaw-docker:latest
 
 # Install system dependencies for a complete Python environment
 USER root
@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \
     ca-certificates \
+    sudo \
+    && echo "node ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
     && rm -rf /var/lib/apt/lists/*
 
 # Install uv by copying from official image

@@ -3,6 +3,7 @@ services:
     build: .
     image: openclaw-extended:latest
     container_name: openclaw-gateway
+    platform: linux/amd64
     restart: unless-stopped
     stdin_open: true
     tty: true
@@ -23,6 +24,7 @@ services:
     build: .
     image: openclaw-extended:latest
     container_name: openclaw-cli
+    platform: linux/amd64
     stdin_open: true
     tty: true
     network_mode: "service:openclaw-gateway"
