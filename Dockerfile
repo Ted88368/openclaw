@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 ghcr.io/phioranex/openclaw-docker:latest
+FROM --platform=linux/arm64 openclaw-multiarch-test:latest
 
 # Install system dependencies for a complete Python environment
 USER root
