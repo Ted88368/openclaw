@@ -13,6 +13,7 @@
 
 ## 快速开始
 
++ [openclaw-multiarch-test](https://github.com/Ted88368/openclaw-docker)
 ```bash
 # 1. 克隆项目
 git clone https://github.com/Ted88368/openclaw.git
