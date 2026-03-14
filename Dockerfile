@@ -13,8 +13,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     ca-certificates \
     sudo \
+    zsh \
+    fzf \
+    bat \
+    eza \
+    vim \
     && echo "node ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
+    && ln -s /usr/bin/batcat /usr/local/bin/bat \
     && rm -rf /var/lib/apt/lists/*
+
+# Install Starship
+RUN curl -sS https://starship.rs/install.sh | sh -s -- -y
 
 # Install uv by copying from official image
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /usr/local/bin/
@@ -38,3 +47,23 @@ ENV UV_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 
 # Switch back to the default user
 USER node
+WORKDIR /home/node
+
+# Install Oh My Zsh
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended && \
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# Copy configurations
+COPY --chown=node:node .zshrc /home/node/.zshrc
+COPY --chown=node:node starship.toml /home/node/.starship.toml
+
+# Set Starship config path
+ENV STARSHIP_CONFIG=/home/node/.starship.toml
+
+# Set zsh as default shell for the node user
+USER root
+RUN chsh -s /bin/zsh node
+USER node
+
+CMD ["zsh"]

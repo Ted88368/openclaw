@@ -1,0 +1,50 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[░▒▓](#9A348E)\
+[ 🦞 OpenClaw ](bg:#9A348E fg:#ffffff)\
+[](fg:#9A348E bg:#DA627D)\
+$directory\
+[](fg:#DA627D bg:#FCA17D)\
+$git_branch\
+$git_status\
+[](fg:#FCA17D bg:#86BBD8)\
+$python\
+[](fg:#86BBD8 bg:#06969A)\
+$nodejs\
+[](fg:#06969A bg:#33658A)\
+$character\
+[ ](fg:#33658A)"""
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+[directory]
+style = "bg:#DA627D fg:#ffffff"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:#FCA17D fg:#ffffff"
+format = '[[ $symbol $branch ](fg:#ffffff bg:#FCA17D)]($style)'
+
+[git_status]
+style = "bg:#FCA17D fg:#ffffff"
+format = '[[($all_status$ahead_behind )](fg:#ffffff bg:#FCA17D)]($style)'
+
+[python]
+symbol = "🐍"
+style = "bg:#86BBD8 fg:#ffffff"
+format = '[[ $symbol ($version) ](fg:#ffffff bg:#86BBD8)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#06969A fg:#ffffff"
+format = '[[ $symbol ($version) ](fg:#ffffff bg:#06969A)]($style)'
+
+[character]
+success_symbol = "[ ➜ ](bg:#33658A fg:#ffffff)"
+error_symbol = "[ ✘ ](bg:#33658A fg:#ff0000)"
