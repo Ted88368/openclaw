@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 openclaw-multiarch-test:latest
+FROM openclaw-multiarch-test:latest
 
 # Install system dependencies for a complete Python environment
 USER root
