@@ -18,9 +18,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     bat \
     eza \
     vim \
+    wget \
     && echo "node ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
     && ln -s /usr/bin/batcat /usr/local/bin/bat \
     && rm -rf /var/lib/apt/lists/*
+
+# Install TA-Lib C library using pre-built .deb packages
+ARG TARGETARCH
+COPY ta-lib_0.6.4_${TARGETARCH}.deb /tmp/ta-lib.deb
+RUN dpkg -i /tmp/ta-lib.deb && rm /tmp/ta-lib.deb
 
 # Install Starship
 RUN curl -sS https://starship.rs/install.sh | sh -s -- -y
