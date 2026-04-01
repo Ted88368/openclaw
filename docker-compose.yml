@@ -10,6 +10,7 @@ services:
     volumes:
       - ~/.openclaw:/home/node/.openclaw
       - ~/.openclaw/workspace:/home/node/.openclaw/workspace
+      - ~/.openclaw/data:/home/node/.openclaw/data
     ports:
       - "18789:18789"
     environment:
@@ -27,6 +28,7 @@ services:
     volumes:
       - ~/.openclaw:/home/node/.openclaw
       - ~/.openclaw/workspace:/home/node/.openclaw/workspace
+      - ~/.openclaw/data:/home/node/.openclaw/data
     environment:
       - NODE_ENV=production
       - OPENCLAW_GATEWAY_TOKEN=local-dev
