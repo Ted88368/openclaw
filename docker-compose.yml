@@ -11,7 +11,7 @@ services:
       - ~/.openclaw:/home/node/.openclaw
       - ~/.openclaw/workspace:/home/node/.openclaw/workspace
       - ~/.openclaw/data:/home/node/.openclaw/data
-      - ~/nfs/kdata_data:/home/node/nfs/kdata_data
+      - ~/nfs/kdata_data:/home/node/kdata_data
     ports:
       - "18789:18789"
     environment:
