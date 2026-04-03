@@ -149,6 +149,7 @@ docker compose logs -f openclaw-gateway      # 实时日志
 docker compose run --rm openclaw-cli status  # 系统状态总览
 docker compose run --rm openclaw-cli health  # 健康检查
 docker compose run --rm openclaw-cli doctor  # 诊断问题
+docker compose run --rm openclaw-cli doctor --fix # 诊断问题
 
 # 配置同步（修改 openclaw.json 后执行）
 # cp  ~/.openclaw/openclaw.json openclaw.json
